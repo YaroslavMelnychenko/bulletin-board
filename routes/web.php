@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::any('/users', 'UserController@index');
+
+Route::any('/ads', 'AdController@index');
+
 Route::get('{path}', function () {
     return view('app');
 })->where('path', '(.*)');
