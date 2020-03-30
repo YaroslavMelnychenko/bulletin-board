@@ -1,5 +1,8 @@
 const mix = require('laravel-mix');
 
+const autoprefixer = require('autoprefixer');
+const sortMediaQueries = require('postcss-sort-media-queries');
+
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -11,5 +14,21 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css');
+mix.js('resources/vue/app.js', 'public/js')
+   .extract([
+      'axios',
+      'vue',
+      'vue-router'
+   ])
+   .sourceMaps()
+   .version()
+   .sass('resources/vue/app.sass', 'public/css')
+   .options({
+      postCss: [
+         autoprefixer({
+            grid: true
+         }),
+         sortMediaQueries()
+      ]
+   })
+   .version();
