@@ -66,7 +66,7 @@ task('artisan:key:generate', function () {
     run('{{bin/php}} {{release_path}}/artisan key:generate --ansi');
 });
 
-// Refresh migrations & seed
+// Refresh migrations
 task('artisan:migrate:refresh', function () {
     run('{{bin/php}} {{release_path}}/artisan migrate:refresh --force');
 });
@@ -89,11 +89,6 @@ task('npm:install', function () {
 desc('Npm production build');
 task('npm:run:prod', function () {
     run("cd {{release_path}} && {{bin/npm}} run prod");
-});
-
-// Wipe storage data
-task('artisan:storage:wipe', function () {
-    run('{{bin/php}} {{release_path}}/artisan storage:wipe');
 });
 
 // [Optional] if deploy fails automatically unlock.

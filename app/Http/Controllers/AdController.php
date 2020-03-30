@@ -8,6 +8,10 @@ use App\Ad;
 class AdController extends Controller
 {
     public function index() {
-        return Ad::all();
+        return Ad::orderBy('id', 'desc')->get();
+    }
+
+    public function paginate($take) {
+        return Ad::orderBy('created_at', 'desc')->paginate($take);
     }
 }

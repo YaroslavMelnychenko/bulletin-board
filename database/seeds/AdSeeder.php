@@ -27,6 +27,7 @@ class AdSeeder extends Seeder
             $ad->header = $header;
             $ad->text = $text;
             $ad->user_id = $userId;
+            $ad->created_at = $faker->iso8601();
             $ad->save();
 
             $adCounter++;

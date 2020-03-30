@@ -16,4 +16,8 @@ class User extends Model
     public function ads() {
         return $this->hasMany('App\Ad');
     }
+
+    public function getFullName() {
+        return $this->first_name." ".$this->last_name;
+    }
 }
