@@ -4,8 +4,8 @@ import Home from './views/home/Home';
 import Profile from './views/profile/Profile';
 
 export default [
-    { name: 'Auth', path: '/', component: Auth },
-    { name: 'Home', path: '/home', component: Home },
+    { name: 'Home', path: '/', component: Home },
+    { name: 'Auth', path: '/auth', component: Auth },
     { name: 'Profile', path: '/profile', component: Profile },
 
     { name: 'Error404', path: '*', component: Error404 }

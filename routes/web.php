@@ -14,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::any('/users', 'UserController@index');
+Route::any('/users/sign-up', 'UserController@signUp');
+Route::any('/users/sign-in', 'UserController@signIn');
+Route::any('/user/login', 'UserController@login');
 
 Route::any('/ads', 'AdController@index');
 Route::any('/ads/{take}', 'AdController@paginate')->where('take', '[0-9]+');

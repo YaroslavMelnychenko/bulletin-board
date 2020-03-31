@@ -28,6 +28,15 @@ export default {
     components: {
         SignIn,
         SignUp
+    },
+    beforeCreate() {
+        var instance = this;
+
+        this.$requests.loginRequest(response => {
+            if(response.data == 'login') {
+                instance.$router.replace({ name: 'Profile' });
+            }
+        });
     }
 }
 </script>

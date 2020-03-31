@@ -26,6 +26,15 @@ export default {
         Navbar,
         ProfileEdit,
         AddAdv
+    },
+    beforeCreate() {
+        var instance = this;
+
+        this.$requests.loginRequest(response => {
+            if(response.data == 'logoff') {
+                instance.$router.replace({ name: 'Auth' });
+            }
+        });
     }
 }
 </script>

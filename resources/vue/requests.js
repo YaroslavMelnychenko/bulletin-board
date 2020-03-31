@@ -9,7 +9,31 @@ export default {
         }).then(response => {
             callback(response, this);
         }).catch(error => {
-            console.error(error);
+            App.displayInformationAlert('adsPaginationRequestError', error);
+        });
+    },
+    
+    signUpRequest: (data, callback) => {
+        axios.post('/users/sign-up', data).then(response => {
+            callback(response);
+        }).catch(error => {
+            App.displayInformationAlert('signUpRequestError', error);
+        });
+    },
+
+    signInRequest: (data, callback) => {
+        axios.post('/users/sign-in', data).then(response => {
+            callback(response);
+        }).catch(error => {
+            App.displayInformationAlert('signInRequestError', error);
+        });
+    },
+
+    loginRequest: (callback) => {
+        axios.post('/user/login').then(response => {
+            callback(response);
+        }).catch(error => {
+            App.displayInformationAlert('loginRequestError', error);
         });
     }
 }

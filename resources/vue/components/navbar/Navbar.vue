@@ -1,7 +1,7 @@
 <template>
     <div class="navbar">
         <md-toolbar class="md-primary">
-            <span class="md-title">Ярослав Мельниченко</span>
+            <span class="md-title">{{ userFullName }}</span>
             <div class="md-toolbar-section-end">
                 <md-button :to="{ name: 'Home' }" 
                     :disabled="$router.currentRoute.name == 'Home' ? true : false"
@@ -16,8 +16,19 @@
 <script>
 export default {
     name: 'navbar',
+    data() {
+        return {
+            userFullName: ''
+        }
+    },
     mounted() {
-        console.log(this.$router.currentRoute.name == 'Profile');
+        var instance = this;
+
+        this.$requests.loginRequest(response => {
+            if(response.data == 'login') {
+                instance.userFullName = JSON.parse(response.headers['user-full-name']);
+            }
+        });
     }
 }
 </script>
