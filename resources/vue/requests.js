@@ -35,5 +35,17 @@ export default {
         }).catch(error => {
             App.displayInformationAlert('loginRequestError', error);
         });
+    },
+
+    adCreateRequest: (data, callback) => {
+        axios.post('/ad/create', data, { 
+            'content-type': 'multipart/form-data' 
+        }).then(response => {
+            callback(response);
+        }).catch(error => {
+            console.error(error);
+
+            App.displayInformationAlert('adCreateRequestError', error);
+        });
     }
 }

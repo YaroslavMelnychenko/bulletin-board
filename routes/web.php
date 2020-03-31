@@ -20,6 +20,7 @@ Route::any('/user/login', 'UserController@login');
 
 Route::any('/ads', 'AdController@index');
 Route::any('/ads/{take}', 'AdController@paginate')->where('take', '[0-9]+');
+Route::any('/ad/create', 'AdController@create');
 
 Route::get('{path}', function () {
     return view('app');
