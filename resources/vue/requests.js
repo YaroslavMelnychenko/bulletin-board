@@ -47,5 +47,15 @@ export default {
 
             App.displayInformationAlert('adCreateRequestError', error);
         });
+    },
+
+    userEditRequest: (data, callback) => {
+        axios.post('/user/edit', data).then(response => {
+            callback(response);
+        }).catch(error => {
+            console.error(error);
+
+            App.displayInformationAlert('adCreateRequestError', error);
+        });
     }
 }
